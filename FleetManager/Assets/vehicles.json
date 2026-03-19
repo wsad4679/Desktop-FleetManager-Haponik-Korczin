@@ -1,5 +1,38 @@
 [
   {
-    
+    "ViehicleName": "Truck A",
+    "RegistrationNumber": "ABC1234",
+    "FuelLevel": 75,
+    "Status": "Available"
+  },
+  {
+    "ViehicleName": "Van B",
+    "RegistrationNumber": "XYZ5678",
+    "FuelLevel": 40,
+    "Status": "InRoute"
+  },
+  {
+    "ViehicleName": "Car C",
+    "RegistrationNumber": "DEF9012",
+    "FuelLevel": 10,
+    "Status": "Service"
+  },
+  {
+    "ViehicleName": "Truck D",
+    "RegistrationNumber": "GHI3456",
+    "FuelLevel": 90,
+    "Status": "Available"
+  },
+  {
+    "ViehicleName": "Van E",
+    "RegistrationNumber": "JKL7890",
+    "FuelLevel": 55,
+    "Status": "InRoute"
+  },
+  {
+    "ViehicleName": "Car F",
+    "RegistrationNumber": "MNO1122",
+    "FuelLevel": 20,
+    "Status": "Service"
   }
 ]
