@@ -8,17 +8,17 @@
              xmlns:vm="clr-namespace:FleetManager.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="FleetManager.Views.VehicleItemView"
-             x:DataType="models:Vehicle"
+             x:DataType="vm:VehicleItemViewModel"
              >
 
     <StackPanel>
-        <TextBlock Text="{Binding VehicleName}"
+        <TextBlock Text="{Binding Vehicle.VehicleName}"
                    FontWeight="Bold"/>
-        <TextBlock Text="{Binding RegistrationNumber}"
+        <TextBlock Text="{Binding Vehicle.RegistrationNumber}"
                    FontStyle="Italic"/>
-        <TextBlock Text="{Binding FuelLevel}"
+        <TextBlock Text="{Binding Vehicle.FuelLevel}"
                    TextWrapping="Wrap"/>
-        <TextBlock Text="{Binding Status}"
+        <TextBlock Text="{Binding Vehicle.Status}"
                    TextWrapping="Wrap"/>
         <StackPanel Orientation="Horizontal" Spacing="10">
             <Button Content="Tankuj" Background="Aqua" Foreground="BlanchedAlmond" />
