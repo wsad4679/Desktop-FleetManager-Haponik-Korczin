@@ -4,7 +4,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:FleetManager.Models"
+             xmlns:vm="clr-namespace:FleetManager.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="FleetManager.Views.VehicleItemView">
-    Welcome to Avalonia!
+             x:Class="FleetManager.Views.VehicleItemView"
+             x:DataType="models:Vehicle"
+             >
+
+    <StackPanel>
+        <TextBlock Text="{Binding VehicleName}"
+                   FontWeight="Bold"/>
+        <TextBlock Text="{Binding RegistrationNumber}"
+                   FontStyle="Italic"/>
+        <TextBlock Text="{Binding FuelLevel}"
+                   TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Status}"
+                   TextWrapping="Wrap"/>
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Tankuj" Background="Aqua" Foreground="BlanchedAlmond" />
+            <Button Content="Usuń"  Background="RED"/>
+        </StackPanel>
+    </StackPanel>
+    
 </UserControl>
