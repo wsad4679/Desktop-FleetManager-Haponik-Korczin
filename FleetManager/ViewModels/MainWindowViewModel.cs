@@ -20,7 +20,7 @@ public class MainWindowViewModel : ViewModelBase
     private async Task LoadVehicles()
     {
         var vehicles = await _vehicleService.GetVehiclesAsync();
-        Console.WriteLine($"Pojazdy: {vehicles.Count}");
+        Console.WriteLine($"MVVM: {vehicles.Count}");
         Vehicles.Clear();
         foreach (var vehicle in vehicles)
         {

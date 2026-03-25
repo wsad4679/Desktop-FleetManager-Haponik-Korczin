@@ -10,17 +10,22 @@ namespace FleetManager.Services;
 
 public class JsonVehicleRepository : IVehicleRepository
 {
-    private const string FilePath = "Assets/vehicles.json";
+    private const string FilePath = "Data/vehicles.json";
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
     public async Task<List<Vehicle>> LoadVehiclesAsync()
     {
-        if (!File.Exists(FilePath)) return new List<Vehicle>(); // jeśli plik nie istnieje zwraca pustą listę
+        if (!File.Exists(FilePath))
+        {
+            Console.WriteLine("No vehicles found");
+            return new List<Vehicle>(); // jeśli plik nie istnieje zwraca pustą listę
+        }
         try
         {
             var jsonData = await File.ReadAllTextAsync(FilePath);
             var vehicles = JsonSerializer.Deserialize<List<Vehicle>>(jsonData);
             return vehicles ?? new List<Vehicle>();
+            
         }
         catch (Exception exception)
         {

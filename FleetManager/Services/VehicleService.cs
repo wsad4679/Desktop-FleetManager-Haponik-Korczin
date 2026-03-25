@@ -20,7 +20,9 @@ public class VehicleService : IVehicleService
         if (_vehicles.Count == 0)
         {
             _vehicles = await _vehicleRepository.LoadVehiclesAsync();
+            Console.WriteLine($"VS Pojazdy: {_vehicles.Count}");
         }
+        
         return _vehicles;
     }
 

@@ -10,9 +10,5 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        var repository = new JsonVehicleRepository();
-        var service = new VehicleService(repository);
-        
-        DataContext = new MainWindowViewModel(service);
     }
 }
