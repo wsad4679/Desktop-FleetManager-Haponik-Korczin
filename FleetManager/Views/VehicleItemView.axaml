@@ -22,6 +22,8 @@
                    TextWrapping="Wrap"/>
         <StackPanel Orientation="Horizontal" Spacing="10">
             <Button Content="Tankuj" Background="Aqua" Foreground="BlanchedAlmond" />
+            <Button Content="Wyślij w trasę"  Background="#ff9810"/>
+            <Button Content="Edytuj"  Background="#10ff10"/>
             <Button Content="Usuń"  Background="RED"/>
         </StackPanel>
     </StackPanel>
