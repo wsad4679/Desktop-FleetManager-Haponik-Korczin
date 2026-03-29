@@ -6,7 +6,7 @@ using FleetManager.Views;
 
 namespace FleetManager.Services;
 
-public class DialogService: IDIalogService
+public class DialogService: IDialogService
 {
     public async Task<bool> ShowConfirmationDialogAsync(string message)
     {

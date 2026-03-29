@@ -18,12 +18,12 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            var repository = new JsonVehicleRepository();
-            var service = new VehicleService(repository); //TODO do wytłumaczenia
-            var dialogService = new DialogService();
+            var repository = new JsonVehicleRepository(); // tworzy obiekt który posiada metody wczytania danych
+            var service = new VehicleService(repository); //przekazuje obiekt oraz wykonuje metody które posiada aby wczytać dane
+            var dialogService = new DialogService(); // stworzenie serwisu który potrafi wyświetlać okienko
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(service, dialogService),
+                DataContext = new MainWindowViewModel(service, dialogService), // UI dostaje ViewModel z danymi oraz możliwością otwierania okienka
             };
         }
 

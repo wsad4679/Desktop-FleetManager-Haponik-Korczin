@@ -11,8 +11,8 @@ namespace FleetManager.ViewModels;
 public class VehicleItemViewModel : ViewModelBase
 {
     private readonly IVehicleService _vehicleService;
-    private readonly IDIalogService _dialogService;
-    public Vehicle Vehicle { get; }
+    private readonly IDialogService _dialogService;
+    public Vehicle Vehicle { get; } // pobranie modelu danych 
     
     public ReactiveCommand<Unit, Unit> RefuelCommand { get; }
     public ReactiveCommand<Unit, Unit> SendToRouteCommand { get; }
@@ -20,7 +20,7 @@ public class VehicleItemViewModel : ViewModelBase
     
     public Action<VehicleItemViewModel>? OnRemove; // to jest aby usunąć pojazd z observable collection z MainWindowViewModel
 
-    public VehicleItemViewModel(Vehicle vehicle, IVehicleService vehicleService, IDIalogService dialogService)
+    public VehicleItemViewModel(Vehicle vehicle, IVehicleService vehicleService, IDialogService dialogService)
     {
         Vehicle = vehicle;
         _vehicleService = vehicleService;

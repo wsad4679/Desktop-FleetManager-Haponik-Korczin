@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace FleetManager.Services;
 
-public interface IDIalogService
+public interface IDialogService
 {
     Task<bool> ShowConfirmationDialogAsync(string message);
 }
