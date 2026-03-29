@@ -24,7 +24,7 @@ public class MainWindowViewModel : ViewModelBase
         Vehicles.Clear();
         foreach (var vehicle in vehicles)
         {
-            Vehicles.Add(new VehicleItemViewModel(vehicle));
+            Vehicles.Add(new VehicleItemViewModel(vehicle, _vehicleService));
         }
     }
 }

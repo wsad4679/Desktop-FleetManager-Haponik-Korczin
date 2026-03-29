@@ -1,8 +1,8 @@
 [
   {
-    "vehicleName": "Truck 1",
-    "registrationNumber": "WX12345",
-    "fuelLevel": 80,
-    "status": 0
+    "VehicleName": "Truck 1",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 80,
+    "Status": 0
   }
 ]

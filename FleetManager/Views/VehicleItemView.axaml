@@ -21,10 +21,10 @@
         <TextBlock Text="{Binding Vehicle.Status}"
                    TextWrapping="Wrap"/>
         <StackPanel Orientation="Horizontal" Spacing="10">
-            <Button Content="Tankuj" Background="Aqua" Foreground="BlanchedAlmond" />
-            <Button Content="Wyślij w trasę"  Background="#ff9810"/>
-            <Button Content="Edytuj"  Background="#10ff10"/>
-            <Button Content="Usuń"  Background="RED"/>
+            <Button Content="Tankuj" Background="Aqua" Foreground="BlanchedAlmond" Command="{Binding RefuelCommand}" />
+            <Button Content="Wyślij w trasę"  Background="#ff9810" Command="{Binding SendToRouteCommand}"/>
+            <Button Content="Edytuj"  Background="#10ff10" Command="{Binding }"/>
+            <Button Content="Usuń"  Background="RED" Command="{Binding RemoveCommand}"/>
         </StackPanel>
     </StackPanel>
     
