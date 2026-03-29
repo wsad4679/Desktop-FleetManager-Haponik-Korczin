@@ -1,0 +1,70 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:FleetManager.ViewModels"
+        x:Class="FleetManager.Views.EditVehicleWindow"
+        Title="Edytuj pojazd"
+        Width="350"
+        Height="300"
+        Background="#0F172A"
+        WindowStartupLocation="CenterOwner"
+        x:DataType="viewModels:EditVehicleViewModel">
+
+    <Border Background="#1E293B"
+            Margin="10"
+            Padding="12"
+            CornerRadius="10"
+            BoxShadow="0 2 8 #00000040">
+
+        <StackPanel Spacing="10">
+
+            <TextBlock Text="Edytuj pojazd"
+                       FontSize="16"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+
+            <StackPanel>
+                <TextBlock Text="Nazwa"
+                           Foreground="#94A3B8"/>
+                <TextBox Text="{Binding VehicleName}"
+                         Background="#334155"
+                         Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Rejestracja"
+                           Foreground="#94A3B8"/>
+                <TextBox Text="{Binding RegistrationNumber}"
+                         Background="#334155"
+                         Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Status"
+                           Foreground="#94A3B8"/>
+                <ComboBox ItemsSource="{Binding Statuses}"
+                          SelectedItem="{Binding Status}"
+                          Background="#334155"
+                          Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Spacing="10"
+                        HorizontalAlignment="Right">
+
+                <Button Content="Zapisz"
+                        Background="#22C55E"
+                        Foreground="White"
+                        Command="{Binding SaveCommand}"/>
+
+                <Button Content="Anuluj"
+                        Background="#EF4444"
+                        Foreground="White"
+                        Command="{Binding CancelCommand}"/>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Border>
+
+</Window>

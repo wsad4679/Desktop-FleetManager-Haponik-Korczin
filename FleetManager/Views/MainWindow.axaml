@@ -3,6 +3,7 @@
         xmlns:vm="using:FleetManager.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:FleetManager.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FleetManager.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -14,7 +15,61 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    <ScrollViewer>
+        <StackPanel Margin="15" Spacing="12">
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border Background="#1E293B"
+                    CornerRadius="10"
+                    Padding="12"
+                    BoxShadow="0 2 8 #00000040">
+
+                <StackPanel Spacing="8">
+
+                    <TextBlock Text="Dodaj pojazd"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="White"/>
+
+                    <TextBox Watermark="Nazwa pojazdu"
+                             Background="#334155"
+                             Foreground="White"
+                             Text="{Binding NewVehicleName}"/>
+
+                    <TextBox Watermark="Numer rejestracyjny"
+                             Background="#334155"
+                             Foreground="White"
+                             Text="{Binding NewRegistrationNumber}"/>
+
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+
+                        <Button Content="➕ Dodaj"
+                                Background="#22C55E"
+                                Foreground="White"
+                                Command="{Binding AddVehicleCommand}"/>
+
+                        <Button Content="💾 Zapisz"
+                                Background="#3B82F6"
+                                Foreground="White"
+                                Command="{Binding SaveCommand}"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <ListBox ItemsSource="{Binding Vehicles}"
+                     Background="Transparent"
+                     BorderThickness="0">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <views:VehicleItemView/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+
+        </StackPanel>
+    </ScrollViewer>
 
 </Window>
