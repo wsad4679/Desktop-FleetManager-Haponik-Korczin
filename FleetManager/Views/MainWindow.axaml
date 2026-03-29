@@ -15,14 +15,32 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    <StackPanel Margin="10" Spacing="10">
 
-    <ScrollViewer>
-        <ListBox ItemsSource="{Binding Vehicles}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <views:VehicleItemView/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </ScrollViewer>
+
+        <TextBox Watermark="Nazwa pojazdu"
+                 Text="{Binding NewVehicleName}"/>
+
+        <TextBox Watermark="Numer rejestracyjny"
+                 Text="{Binding NewRegistrationNumber}"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Dodaj pojazd"
+                    Command="{Binding AddVehicleCommand}"/>
+
+            <Button Content="Zapisz do JSON"
+                    Command="{Binding SaveCommand}"/>
+        </StackPanel>
+
+        <ScrollViewer>
+            <ListBox ItemsSource="{Binding Vehicles}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <views:VehicleItemView/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+    </StackPanel>
 </Window>
