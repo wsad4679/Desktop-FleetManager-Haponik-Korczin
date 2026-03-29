@@ -15,32 +15,61 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-    <StackPanel Margin="10" Spacing="10">
+    <ScrollViewer>
+        <StackPanel Margin="15" Spacing="12">
 
+            <Border Background="#1E293B"
+                    CornerRadius="10"
+                    Padding="12"
+                    BoxShadow="0 2 8 #00000040">
 
-        <TextBox Watermark="Nazwa pojazdu"
-                 Text="{Binding NewVehicleName}"/>
+                <StackPanel Spacing="8">
 
-        <TextBox Watermark="Numer rejestracyjny"
-                 Text="{Binding NewRegistrationNumber}"/>
+                    <TextBlock Text="Dodaj pojazd"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="White"/>
 
-        <StackPanel Orientation="Horizontal" Spacing="10">
-            <Button Content="Dodaj pojazd"
-                    Command="{Binding AddVehicleCommand}"/>
+                    <TextBox Watermark="Nazwa pojazdu"
+                             Background="#334155"
+                             Foreground="White"
+                             Text="{Binding NewVehicleName}"/>
 
-            <Button Content="Zapisz do JSON"
-                    Command="{Binding SaveCommand}"/>
-        </StackPanel>
+                    <TextBox Watermark="Numer rejestracyjny"
+                             Background="#334155"
+                             Foreground="White"
+                             Text="{Binding NewRegistrationNumber}"/>
 
-        <ScrollViewer>
-            <ListBox ItemsSource="{Binding Vehicles}">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+
+                        <Button Content="➕ Dodaj"
+                                Background="#22C55E"
+                                Foreground="White"
+                                Command="{Binding AddVehicleCommand}"/>
+
+                        <Button Content="💾 Zapisz"
+                                Background="#3B82F6"
+                                Foreground="White"
+                                Command="{Binding SaveCommand}"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <ListBox ItemsSource="{Binding Vehicles}"
+                     Background="Transparent"
+                     BorderThickness="0">
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <views:VehicleItemView/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
-        </ScrollViewer>
 
-    </StackPanel>
+            </ListBox>
+
+        </StackPanel>
+    </ScrollViewer>
+
 </Window>
