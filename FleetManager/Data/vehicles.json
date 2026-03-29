@@ -4,5 +4,42 @@
     "RegistrationNumber": "WX12345",
     "FuelLevel": 80,
     "Status": 0
+  },
+  {
+    "VehicleName": "Truck 2",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 1,
+    "Status": 1
+  },
+  {
+    "VehicleName": "Truck 3",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 25,
+    "Status": 2
+  },
+  {
+    "VehicleName": "Truck 4",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 12,
+    "Status": 2
+  },
+  {
+    "VehicleName": "Truck 5",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 73,
+    "Status": 1
+  },
+  {
+    "VehicleName": "Truck 6",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 100,
+    "Status": 2
+  },
+  {
+    "VehicleName": "Truck 7",
+    "RegistrationNumber": "WX12345",
+    "FuelLevel": 5,
+    "Status": 1
   }
+  
 ]
