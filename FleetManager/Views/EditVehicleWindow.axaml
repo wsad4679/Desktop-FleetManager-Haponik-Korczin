@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:FleetManager.Models"
+        xmlns:viewModels="clr-namespace:FleetManager.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="FleetManager.Views.EditVehicleWindow"
+        Title="EditVehicleWindow"
+        x:DataType="viewModels:EditVehicleViewModel">
+    <StackPanel Margin="10" Spacing="10">
+
+        <TextBox Watermark="Nazwa pojazdu"
+                 Text="{Binding VehicleName}"/>
+
+        <TextBox Watermark="Rejestracja"
+                 Text="{Binding RegistrationNumber}"/>
+        
+
+        <ComboBox ItemsSource="{Binding Statuses}"
+                  SelectedItem="{Binding Status}"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Zapisz" Command="{Binding SaveCommand}"/>
+            <Button Content="Anuluj" Command="{Binding CancelCommand}"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

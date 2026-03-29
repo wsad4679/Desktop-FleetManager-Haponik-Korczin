@@ -23,7 +23,7 @@
         <StackPanel Orientation="Horizontal" Spacing="10">
             <Button Content="Tankuj" Background="Aqua" Foreground="BlanchedAlmond" Command="{Binding RefuelCommand}" />
             <Button Content="Wyślij w trasę"  Background="#ff9810" Command="{Binding SendToRouteCommand}"/>
-            <Button Content="Edytuj"  Background="#10ff10" Command="{Binding }"/>
+            <Button Content="Edytuj"  Background="#10ff10" Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).EditCommand}" CommandParameter="{Binding Vehicle}"/>
             <Button Content="Usuń"  Background="RED" Command="{Binding RemoveCommand}"/>
         </StackPanel>
     </StackPanel>
