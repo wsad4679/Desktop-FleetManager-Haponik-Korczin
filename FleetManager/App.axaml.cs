@@ -20,9 +20,10 @@ public partial class App : Application
         {
             var repository = new JsonVehicleRepository();
             var service = new VehicleService(repository); //TODO do wytłumaczenia
+            var dialogService = new DialogService();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(service),
+                DataContext = new MainWindowViewModel(service, dialogService),
             };
         }
 

@@ -11,16 +11,20 @@ namespace FleetManager.ViewModels;
 public class VehicleItemViewModel : ViewModelBase
 {
     private readonly IVehicleService _vehicleService;
+    private readonly IDIalogService _dialogService;
     public Vehicle Vehicle { get; }
     
     public ReactiveCommand<Unit, Unit> RefuelCommand { get; }
     public ReactiveCommand<Unit, Unit> SendToRouteCommand { get; }
     public ReactiveCommand<Unit, Unit> RemoveCommand { get; }
+    
+    public Action<VehicleItemViewModel>? OnRemove; // to jest aby usunąć pojazd z observable collection z MainWindowViewModel
 
-    public VehicleItemViewModel(Vehicle vehicle, IVehicleService vehicleService)
+    public VehicleItemViewModel(Vehicle vehicle, IVehicleService vehicleService, IDIalogService dialogService)
     {
         Vehicle = vehicle;
         _vehicleService = vehicleService;
+        _dialogService = dialogService;
 
         var canRefuel = this.WhenAnyValue(
             x => x.Vehicle.Status,
@@ -46,7 +50,12 @@ public class VehicleItemViewModel : ViewModelBase
 
         RemoveCommand = ReactiveCommand.CreateFromTask(async () =>
         {
+            var confirm = await _dialogService
+                .ShowConfirmationDialogAsync($"Do you want to remove vehicle {Vehicle.VehicleName}");
+            if (!confirm) return;
             await _vehicleService.RemoveVehicleAsync(Vehicle);
+            
+            OnRemove?.Invoke(this); // informuje MainWindowViewModel aby usunął pojazd
         });
     }
     
